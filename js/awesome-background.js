@@ -11,7 +11,7 @@ anim();
 
 /* Smooth Scroll */
 $('#call-to-action h1').click(function () {
-    document.querySelector('#content').scrollIntoView({ 
+    document.querySelector('#about-container').scrollIntoView({ 
         behavior: 'smooth'
     });
 });
@@ -20,10 +20,25 @@ $('#back-to-top').click(function () {
         behavior: 'smooth'
     });
 });
+$('#about-btn').click(function () {
+    document.querySelector('#about-container').scrollIntoView({
+        behavior: 'smooth'
+    });
+});
 $('#packages-btn').click(function () {
     document.querySelector('#packages').scrollIntoView({
         behavior: 'smooth'
-    })
+    });
+});
+$('#personal-guides-btn').click(function () {
+    document.querySelector('#personal-guides').scrollIntoView({
+        behavior: 'smooth'
+    });
+});
+$('#contact-btn').click(function () {
+    document.querySelector('#contact').scrollIntoView({
+        behavior: 'smooth'
+    });
 });
 /* End Smooth Scroll */
 
@@ -39,7 +54,13 @@ let checkScroll = function() {
     //   if (top_of_window <= bottom_of_object && bottom_of_window >= top_of_object) {
         if (top_of_window >= bottom_of_object) {
             // $('#nav').show();
-            $('#nav').fadeIn('slow');
+            // $('#nav').fadeIn('slow');
+            // $('header').css("display", "block");
+            
+            // for some reason #nav was defaulting to display:none 
+            $('#nav').css('display', 'flex');
+            $('header').fadeIn('slow');
+            $('#nav li').fadeIn('slow');
             $('#back-to-top').fadeIn('slow');
         } else {
             // $('#nav').hide();
@@ -48,6 +69,6 @@ let checkScroll = function() {
         }
     }
   }
-$(document).ready(checkScroll);
+// $(document).ready(checkScroll);
 $(window).on('scroll', function() {checkScroll()});
 /* End Show/Hide Navigation */
